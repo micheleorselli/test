@@ -1,0 +1,22 @@
+{
+    "name": "orso/logger",
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Logger\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LoggerTest\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michele Orselli",
+            "email": "michele.orselli@flowing.it"
+        }
+    ]
+}
