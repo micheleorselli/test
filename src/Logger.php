@@ -2,7 +2,7 @@
 
 class Logger
 {
-    private $msgs = [];
+    private $messages = [];
 
     public function log(string $msg)
     {
@@ -10,11 +10,11 @@ class Logger
             return;
         }
 
-        $this->msgs[] = $msg;
+        $this->messages[] = $msg;
     }
 
     public function getMessages(): array
     {
-        return $this->msgs;
+        return $this->messages;
     }
 }
