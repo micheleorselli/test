@@ -4,13 +4,13 @@ class Logger
 {
     private $messages = [];
 
-    public function log(string $msg)
+    public function log(string $message)
     {
-        if ($msg === '') {
+        if ($message === '') {
             return;
         }
 
-        $this->messages[] = $msg;
+        $this->messages[] = $message;
     }
 
     public function getMessages(): array
