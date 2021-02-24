@@ -13,11 +13,11 @@ class LoggerTest extends PHPUnit\Framework\TestCase
     {
         $logger = new Logger();
 
-        $logger->log("prima messaggio");
+        $logger->log("primo messaggio");
         $logger->log("secondo messaggio");
 
         $expected = [
-            "prima messaggio",
+            "primo messaggio",
             "secondo messaggio"
         ];
 
@@ -31,11 +31,11 @@ class LoggerTest extends PHPUnit\Framework\TestCase
     {
         $logger = new Logger();
 
-        $logger->log("prima messaggio");
+        $logger->log("primo messaggio");
         $logger->log("");
 
         $expected = [
-            "prima messaggio",
+            "primo messaggio",
         ];
 
         $this->assertEquals($expected, $logger->getMessages());
