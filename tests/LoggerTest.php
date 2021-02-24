@@ -19,7 +19,7 @@ class LoggerTest extends PHPUnit\Framework\TestCase
             "secondo messaggio"
         ];
 
-        $this->assertEquals($expected, $logger->getMessages());
+        $this->assertEquals($expected, $logger->getLogs());
     }
 
     /**
@@ -36,7 +36,7 @@ class LoggerTest extends PHPUnit\Framework\TestCase
             "primo messaggio",
         ];
 
-        $this->assertEquals($expected, $logger->getMessages());
+        $this->assertEquals($expected, $logger->getLogs());
     }
 
 
