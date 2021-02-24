@@ -2,8 +2,6 @@
 
 require __DIR__ . "/../src/Logger.php";
 
-use Logger;
-
 class LoggerTest extends PHPUnit\Framework\TestCase
 {
     /**
