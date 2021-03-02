@@ -2,19 +2,31 @@
 
 class Logger
 {
-    private $messages = [];
+    /**
+     * @var LogStorage
+     */
+    private $storage;
 
-    public function log(string $log)
+    public function __construct(LogStorage $storage)
+    {
+        $this->storage = $storage;
+    }
+
+    public function log(string $log): void
     {
         if ($log === '') {
             return;
         }
 
-        $this->messages[] = $log;
+        if ($log[0] === 'a') {
+            return;
+        }
+
+        $this->storage->write($log);
     }
 
-    public function getMessages(): array
+    public function getLogs(): array
     {
-        return $this->messages;
+        return $this->storage->readAll();
     }
 }
