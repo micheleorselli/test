@@ -1,6 +1,8 @@
 <?php
 
-class FileLogger
+namespace Logger\Storage;
+
+class FileLogStorage implements LogStorage
 {
     /**
      * @var string
@@ -10,32 +12,23 @@ class FileLogger
     public function __construct(string $filePath)
     {
         if (file_exists($filePath) && !is_writable($filePath)) {
-            throw new RuntimeException('file non scrivibile');
+            throw new \RuntimeException('file non scrivibile');
         }
 
         if (file_exists($filePath) && !is_readable($filePath)) {
-            throw new RuntimeException('file non leggibile');
+            throw new \RuntimeException('file non leggibile');
         }
-
 
         $this->filePath = $filePath;
     }
 
-    public function log(string $log): void
+    public function write(string $log): void
     {
-        if ($log === '') {
-            return;
-        }
-
-        if ($log[0] === 'a') {
-            return;
-        }
-
         file_put_contents($this->filePath, $log . "\n", FILE_APPEND);
     }
 
-    public function getLogs(): string
+    public function readAll(): array
     {
-        return file_get_contents($this->filePath);
+        return explode("\n", file_get_contents($this->filePath));
     }
 }

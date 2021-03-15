@@ -1,9 +1,9 @@
 <?php
 
-require __DIR__ . '/../src/LogStorage.php';
-require __DIR__ . '/../src/FileLogStorage.php';
+use Logger\Storage\FileLogStorage;
+use PHPUnit\Framework\TestCase;
 
-class FileLogStorageTest extends PHPUnit\Framework\TestCase
+class FileLogStorageTest extends TestCase
 {
     /**
      * @covers

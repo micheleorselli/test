@@ -1,10 +1,12 @@
 <?php
 
-require __DIR__ . '/../src/LogStorage.php';
-require __DIR__ . '/../src/InMemoryLogStorage.php';
-require __DIR__ . '/../src/Logger.php';
+namespace Test;
 
-class LoggerTest extends PHPUnit\Framework\TestCase
+use Logger\Logger;
+use Logger\Storage\InMemoryLogStorage;
+use PHPUnit\Framework\TestCase;
+
+class LoggerTest extends TestCase
 {
     /**
      * @covers
@@ -37,7 +39,7 @@ class LoggerTest extends PHPUnit\Framework\TestCase
         $storage2 = new InMemoryLogStorage();
         $storage3 = new InMemoryLogStorage();
 
-        $combinedStorage = new \Logger\CombinedLogStorage([$storage1, $storage2, $storage3]);
+        $combinedStorage = new \Logger\Storage\CombinedLogStorage([$storage1, $storage2, $storage3]);
 
         $logger = new Logger($combinedStorage);
 
@@ -64,7 +66,7 @@ class LoggerTest extends PHPUnit\Framework\TestCase
         $storage2 = new InMemoryLogStorage();
         $storage3 = new InMemoryLogStorage();
 
-        $combinedStorage = new \Logger\CombinedLogStorage([$storage1, $storage2, $storage3]);
+        $combinedStorage = new \Logger\Storage\CombinedLogStorage([$storage1, $storage2, $storage3]);
 
         $combinedStorage->write("un messaggio");
 

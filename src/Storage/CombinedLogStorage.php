@@ -1,10 +1,9 @@
 <?php
 
 
-namespace Logger;
+namespace Logger\Storage;
 
-
-class CombinedLogStorage implements \LogStorage
+class CombinedLogStorage implements LogStorage
 {
     private $logStorage;
 

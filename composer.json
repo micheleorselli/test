@@ -10,7 +10,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "LoggerTest\\": "tests/"
+            "Test\\": "tests/"
         }
     },
     "authors": [
@@ -18,5 +18,6 @@
             "name": "Michele Orselli",
             "email": "michele.orselli@flowing.it"
         }
-    ]
+    ],
+    "description": "a dummy project for testing purposes"
 }

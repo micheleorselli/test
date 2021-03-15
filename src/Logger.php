@@ -1,5 +1,9 @@
 <?php
 
+namespace Logger;
+
+use Logger\Storage\LogStorage;
+
 class Logger
 {
     /**
