@@ -10,11 +10,11 @@ class FileLogStorageTest extends TestCase
      */
     public function test_can_log_a_message()
     {
-        if (file_exists('./prova1.txt')) {
-            unlink('./prova1.txt');
+        if (file_exists('/tmp/prova1.txt')) {
+            unlink('/tmp/prova1.txt');
         }
 
-        $logger = new FileLogStorage('./prova1.txt');
+        $logger = new FileLogStorage('/tmp/prova1.txt');
 
         $logger->write("primo messaggio");
         $logger->write("secondo messaggio");
@@ -36,10 +36,10 @@ class FileLogStorageTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage("file non scrivibile");
 
-        touch('./prova.txt');
-        chmod('./prova.txt', 0444);
+        touch('/tmp/prova.txt');
+        chmod('/tmp/prova.txt', 0444);
 
-        $logger = new FileLogStorage('./prova.txt');
+        $logger = new FileLogStorage('/tmp/prova.txt');
     }
 
     /**
@@ -50,13 +50,13 @@ class FileLogStorageTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage("file non leggibile");
 
-        if (file_exists('./prova2.txt')) {
-            unlink('./prova2.txt');
+        if (file_exists('/tmp/prova2.txt')) {
+            unlink('/tmp/prova2.txt');
         }
-        touch('./prova2.txt');
-        chmod('./prova2.txt', 0222);
+        touch('/tmp/prova2.txt');
+        chmod('/tmp/prova2.txt', 0222);
 
-        $logger = new FileLogStorage('./prova2.txt');
+        $logger = new FileLogStorage('/tmp/prova2.txt');
     }
 
 }
